@@ -47,7 +47,7 @@ Every resource in this project is defined in code, version-controlled, and deplo
 ### Secrets Exposed in Version Control (terraform.tfvars staged to Git)
 - Before committing, I ran "git add ." without first checking "git status". When I ran "git status" afterwards I noticed "terraform.tfvars" was staged(a file containing sensitive values). It was mising from ".gitignore". meaning Git was tracking it and it would have been pushed to the pubic repository. I immediately ran "git rm --cached terraform.tfvars" to unstage it without deleting the local file, then added it to .gitignore.
 ### Service Principal Authentication Failure in CI/CD Pipeline
-- Github actions passes service principal credentials to Terraform via PowerShell environment variable rather than a command-line flag/option. I used "-var flag" instaead of "$env:TF_VAR_ADMIN_PASSWORD" syntax. So, the fix was the use the syntax $env:TF_VAR_ADMIN_PASSWORD.
+- Github actions passes service principal credentials to Terraform via PowerShell environment variable rather than a command-line flag/option. I used "-var flag" instaead of "$env:TF_VAR_ADMIN_PASSWORD" syntax which was repeatedly cause the Terraform Plan job to fail. So, the fix was to use the syntax $env:TF_VAR_ADMIN_PASSWORD.
 ---
 ## Stack
 
