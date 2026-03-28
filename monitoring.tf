@@ -10,8 +10,8 @@ resource "azurerm_monitor_action_group" "email_alert" {
   resource_group_name = azurerm_resource_group.main.name
   short_name          = "emailalert"
   email_receiver {
-    name          = "Admin Email"
-    email_address = "your-email@example.com"
+    name          = "Admin's Email"
+    email_address = "hojohn8225@gmail.com"
   }
 }
 resource "azurerm_monitor_metric_alert" "cpu_alert" {
