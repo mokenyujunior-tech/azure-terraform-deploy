@@ -4,7 +4,6 @@ resource "azurerm_storage_account" "app" {
   location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  # HTTPS only — AZ-104: Configure Azure Storage security
   https_traffic_only_enabled = true
   min_tls_version            = "TLS1_2"
   tags = {
